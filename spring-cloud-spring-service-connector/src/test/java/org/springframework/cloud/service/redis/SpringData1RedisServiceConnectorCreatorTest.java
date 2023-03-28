@@ -28,7 +28,7 @@ public class SpringData1RedisServiceConnectorCreatorTest {
 
     @Mock private RedisServiceInfo mockRedisServiceInfo;
 
-    private SpringData1RedisConnectionFactoryCreator testCreator = new SpringData1RedisConnectionFactoryCreator();
+	private final SpringData1RedisConnectionFactoryCreator testCreator = new SpringData1RedisConnectionFactoryCreator();
 
     @Before
     public void setup() {

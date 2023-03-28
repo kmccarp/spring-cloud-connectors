@@ -63,7 +63,7 @@ public class LocalConfigConnector extends AbstractCloudConnector<UriBasedService
 
     /*--------------- properties read out of the file at spring.cloud.propertiesFile ---------------*/
 
-	private Properties fileProperties = null;
+	private Properties fileProperties;
 
 	/**
 	 * Returns {@code true} if a property named {@code spring.cloud.appId} is present in any of the property sources.
@@ -71,13 +71,15 @@ public class LocalConfigConnector extends AbstractCloudConnector<UriBasedService
 	 */
 	@Override
 	public boolean isInMatchingCloud() {
-		if (fileProperties == null)
+		if (fileProperties == null) {
 			readFileProperties();
+		}
 
 		String appId = findProperty(APP_ID_PROPERTY);
 
-		if (appId == null)
+		if (appId == null) {
 			logger.info("the property " + APP_ID_PROPERTY + " was not found in the system properties or configuration file");
+		}
 
 		return appId != null;
 	}
@@ -90,10 +92,11 @@ public class LocalConfigConnector extends AbstractCloudConnector<UriBasedService
 
 	@Override
 	protected List<UriBasedServiceData> getServicesData() {
-		if (fileProperties == null)
+		if (fileProperties == null) {
 			throw new IllegalStateException("isInMatchingCloud() must be called first to initialize connector");
+		}
 
-		LinkedHashMap<String, Properties> propertySources = new LinkedHashMap<String, Properties>();
+		LinkedHashMap<String, Properties> propertySources = new LinkedHashMap<>();
 
 		propertySources.put("properties from file", fileProperties);
 		try {

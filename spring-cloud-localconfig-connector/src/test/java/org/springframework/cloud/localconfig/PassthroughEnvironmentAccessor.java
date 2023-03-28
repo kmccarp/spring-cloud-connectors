@@ -5,7 +5,7 @@ import java.util.Properties;
 import org.springframework.cloud.util.EnvironmentAccessor;
 
 class PassthroughEnvironmentAccessor extends EnvironmentAccessor {
-	private Properties systemProperties = new Properties(System.getProperties());
+	private final Properties systemProperties = new Properties(System.getProperties());
 
 	void clear() {
 		systemProperties.clear();

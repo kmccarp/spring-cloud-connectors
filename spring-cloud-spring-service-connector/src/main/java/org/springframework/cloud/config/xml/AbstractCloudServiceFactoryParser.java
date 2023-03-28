@@ -56,10 +56,10 @@ class AbstractCloudServiceFactoryParser extends AbstractSingleBeanDefinitionPars
 }
 
 class CloudServiceIntroducer implements BeanFactoryPostProcessor {
-	private Class<? extends CloudServiceConnectorFactory<?>> serviceConnectorFactoryType;
-	private String beanId;
-	private String serviceId;
-	private ServiceConnectorConfig serviceConnectorConfig;
+	private final Class<? extends CloudServiceConnectorFactory<?>> serviceConnectorFactoryType;
+	private final String beanId;
+	private final String serviceId;
+	private final ServiceConnectorConfig serviceConnectorConfig;
 	
 	private Class<?> serviceConnectorType;
 

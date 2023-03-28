@@ -102,9 +102,10 @@ class PropertiesFileResolver {
 		}
 
 		// if there's anything else, the client probably tried to put an app ID or other credentials there
-		if (properties.entrySet().size() > 1)
+		if (properties.entrySet().size() > 1) {
 			logger.warning("the properties file " + classpathPropertiesFilename + " contained properties besides "
 					+ LocalConfigConnector.PROPERTIES_FILE_PROPERTY + "; ignoring");
+		}
 
 		logger.fine("substituting system properties into '" + template + "'");
 		File configFile = new File(new StrSubstitutor(systemPropertiesLookup(env)).replace(template));
@@ -123,10 +124,11 @@ class PropertiesFileResolver {
 
 		file = findCloudPropertiesFileFromClasspath();
 
-		if (file != null)
+		if (file != null) {
 			logger.info("using configuration file derived from " + classpathPropertiesFilename);
-		else
+		} else {
 			logger.info("did not find any Spring Cloud configuration file");
+		}
 
 		return file;
 	}

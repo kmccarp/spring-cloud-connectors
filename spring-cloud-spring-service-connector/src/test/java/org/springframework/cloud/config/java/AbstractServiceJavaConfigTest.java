@@ -13,8 +13,8 @@ import org.springframework.context.ApplicationContext;
  */
 public abstract class AbstractServiceJavaConfigTest<SC> extends AbstractCloudConfigServiceTest<SC> {
 
-	private Class<?> withServiceIdContextClassName;
-	private Class<?> withoutServiceIdContextClassName;
+	private final Class<?> withServiceIdContextClassName;
+	private final Class<?> withoutServiceIdContextClassName;
 
 	public AbstractServiceJavaConfigTest(Class<?> withServiceIdContextClassName,
 			                           Class<?> withoutServiceIdContextClassName) {

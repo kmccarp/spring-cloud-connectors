@@ -22,14 +22,14 @@ import org.springframework.cloud.service.ServiceConnectorCreator;
  *
  * @param <T> the type of the service being loaded
  */
-public class ServiceLoaderWithExceptionControl<T> implements Iterable<T> {
-	private Iterable<T> underlying;
+public final class ServiceLoaderWithExceptionControl<T> implements Iterable<T> {
+	private final Iterable<T> underlying;
 
-	private static Logger logger = Logger.getLogger(ServiceLoaderWithExceptionControl.class.getName());
+	private static final Logger logger = Logger.getLogger(ServiceLoaderWithExceptionControl.class.getName());
 
 	public static <T> Iterable<T> load(Class<T> serviceType) {
 		ServiceLoader<T> loader = ServiceLoader.load(serviceType);
-		return new ServiceLoaderWithExceptionControl<T>(loader);
+		return new ServiceLoaderWithExceptionControl<>(loader);
 	}
 
 	private ServiceLoaderWithExceptionControl(Iterable<T> underlying) {
@@ -42,7 +42,7 @@ public class ServiceLoaderWithExceptionControl<T> implements Iterable<T> {
 	}
 
 	private class ServiceLoaderIterator implements Iterator<T> {
-		private Iterator<T> underlying;
+		private final Iterator<T> underlying;
 
 		public ServiceLoaderIterator(Iterator<T> underlying) {
 			this.underlying = underlying;

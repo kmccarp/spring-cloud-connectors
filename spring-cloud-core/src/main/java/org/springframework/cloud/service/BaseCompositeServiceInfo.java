@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class BaseCompositeServiceInfo extends BaseServiceInfo implements CompositeServiceInfo {
 
-	private List<ServiceInfo> constituents;
+	private final List<ServiceInfo> constituents;
 
 	public BaseCompositeServiceInfo(String id, ServiceInfo... constituents) {
 		super(id);

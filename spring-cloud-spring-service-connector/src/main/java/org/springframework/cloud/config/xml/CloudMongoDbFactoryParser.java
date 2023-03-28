@@ -32,7 +32,7 @@ public class CloudMongoDbFactoryParser extends AbstractNestedElementCloudService
 	protected void doParse(Element element, ParserContext parserContext, BeanDefinitionBuilder builder) {
 		super.doParse(element, parserContext, builder);
 
-		Map<String, String> attributeMap = new HashMap<String, String>();
+		Map<String, String> attributeMap = new HashMap<>();
 		parseWriteConcern(element, attributeMap);
 		parseMongoOptionsElement(element, attributeMap);
 

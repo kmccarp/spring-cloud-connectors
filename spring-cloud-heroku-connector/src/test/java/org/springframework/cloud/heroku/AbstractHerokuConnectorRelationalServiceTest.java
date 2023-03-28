@@ -8,7 +8,7 @@ import org.springframework.cloud.service.common.RelationalServiceInfo;
  * @author Ramnivas Laddad
  */
 public abstract class AbstractHerokuConnectorRelationalServiceTest extends AbstractHerokuConnectorTest {
-	private String databaseType;
+	private final String databaseType;
 
 	public AbstractHerokuConnectorRelationalServiceTest(String databaseType) {
 		this.databaseType = databaseType;
@@ -16,7 +16,7 @@ public abstract class AbstractHerokuConnectorRelationalServiceTest extends Abstr
 
 	protected String getJdbcUrl(String name) {
 		String jdbcUrlDatabaseType = databaseType;
-		if (databaseType.equals("postgres")) {
+		if ("postgres".equals(databaseType)) {
 			jdbcUrlDatabaseType = "postgresql";
 		}
 

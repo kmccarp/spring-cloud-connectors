@@ -17,7 +17,7 @@ import org.springframework.data.redis.connection.jedis.JedisClientConfiguration.
  *
  */
 public class RedisJedisClientConfigurer implements ServiceConnectorConfigurer<JedisClientConfigurationBuilder, RedisConnectionFactoryConfig> {
-	private MapServiceConnectionConfigurer<JedisClientConfigurationBuilder, MapServiceConnectorConfig> mapClientConfigurer =
+	private final MapServiceConnectionConfigurer<JedisClientConfigurationBuilder, MapServiceConnectorConfig> mapClientConfigurer =
 			new MapServiceConnectionConfigurer<>();
 
 	@Override

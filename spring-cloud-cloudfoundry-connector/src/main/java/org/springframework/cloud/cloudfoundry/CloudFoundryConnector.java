@@ -21,10 +21,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class CloudFoundryConnector extends AbstractCloudConnector<Map<String,Object>> {
 
-	private ObjectMapper objectMapper = new ObjectMapper();
+	private final ObjectMapper objectMapper = new ObjectMapper();
 	private EnvironmentAccessor environment = new EnvironmentAccessor();
-	
-	private ApplicationInstanceInfoCreator applicationInstanceInfoCreator = new ApplicationInstanceInfoCreator();
+
+	private final ApplicationInstanceInfoCreator applicationInstanceInfoCreator = new ApplicationInstanceInfoCreator();
 
 	private Iterable<ServiceDataPostProcessor> serviceDataPostProcessors;
 
@@ -81,7 +81,7 @@ public class CloudFoundryConnector extends AbstractCloudConnector<Map<String,Obj
 			rawServices = postProcessor.process(rawServices);
 		}
 
-		List<Map<String, Object>> flatServices = new ArrayList<Map<String, Object>>();
+		List<Map<String, Object>> flatServices = new ArrayList<>();
 		for (Map.Entry<String, List<Map<String,Object>>> entry : rawServices.entrySet()) {
 			flatServices.addAll(entry.getValue());
 		}

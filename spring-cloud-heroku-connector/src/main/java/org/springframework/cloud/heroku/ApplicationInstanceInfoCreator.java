@@ -18,9 +18,9 @@ import org.springframework.cloud.util.EnvironmentAccessor;
  *
  */
 public class ApplicationInstanceInfoCreator {
-	private static Logger logger = Logger.getLogger(ApplicationInstanceInfoCreator.class.getName());
-	
-	private EnvironmentAccessor environment;
+	private static final Logger logger = Logger.getLogger(ApplicationInstanceInfoCreator.class.getName());
+
+	private final EnvironmentAccessor environment;
 
 	public ApplicationInstanceInfoCreator(EnvironmentAccessor environmentAccessor) {
 		this.environment = environmentAccessor;
@@ -35,7 +35,7 @@ public class ApplicationInstanceInfoCreator {
 		
 		String dyno = environment.getEnvValue("DYNO");
 
-		Map<String,Object> appProperties = new HashMap<String, Object>();
+		Map<String,Object> appProperties = new HashMap<>();
 		appProperties.put("port", environment.getEnvValue("PORT"));
 		appProperties.put("host", environment.getHost());
 		

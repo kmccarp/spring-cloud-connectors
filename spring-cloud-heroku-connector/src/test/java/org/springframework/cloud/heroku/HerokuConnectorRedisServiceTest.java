@@ -21,7 +21,7 @@ public class HerokuConnectorRedisServiceTest extends AbstractHerokuConnectorTest
 	@Test
 	public void redisServiceCreation() {
 		for (String redisEnv : new String[]{"REDISTOGO_URL", "REDISCLOUD_URL", "OPENREDIS_URL", "REDISGREEN_URL", "REDIS_URL"}) {
-			Map<String, String> env = new HashMap<String, String>();
+			Map<String, String> env = new HashMap<>();
 			String redisUrl = getRedisServiceUrl();
 			env.put(redisEnv, redisUrl);
 			when(mockEnvironment.getEnv()).thenReturn(env);

@@ -37,7 +37,7 @@ public class AbstractCloudConnectorTest {
 }
 
 class TestCloudConnector extends AbstractCloudConnector<TestServiceData> {
-	private List<TestServiceData> serviceDatas = new ArrayList<TestServiceData>();
+	private final List<TestServiceData> serviceDatas = new ArrayList<>();
 
 	public TestCloudConnector(TestServiceData... serviceDatas) {
 		super(TestServiceInfoCreator.class);
@@ -76,7 +76,7 @@ class TestFallbackServiceInfoCreator extends FallbackServiceInfoCreator<BaseServ
 }
 
 class TestServiceInfo extends BaseServiceInfo {
-	private String tag;
+	private final String tag;
 
 	public TestServiceInfo(String id, String tag) {
 		super(id);
@@ -89,8 +89,8 @@ class TestServiceInfo extends BaseServiceInfo {
 }
 
 class TestServiceData {
-	private String id;
-	private String tag;
+	private final String id;
+	private final String tag;
 
 	public TestServiceData(String id, String tag) {
 		this.id = id;
@@ -108,7 +108,7 @@ class TestServiceData {
 
 class TestCompositeServiceData extends TestServiceData {
 
-    private TestServiceData[] constituents;
+	private final TestServiceData[] constituents;
 
     public TestCompositeServiceData(String id, String tag, TestServiceData... constituents) {
         super(id, tag);

@@ -20,7 +20,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author Ramnivas Laddad
  * @author Chris Schaefer
  */
-abstract public class StubCloudConnectorTest {
+public abstract class StubCloudConnectorTest {
 	private static final String MOCK_CLOUD_BEAN_NAME = "mockCloud";
 
 	protected ApplicationContext getTestApplicationContext(String fileName, ServiceInfo... serviceInfos) {

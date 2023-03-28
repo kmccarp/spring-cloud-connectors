@@ -135,7 +135,7 @@ public class CloudFoundryServiceInfoCreatorTest {
 	private class ServiceDataBuilder {
 		private String[] tags = new String[0];
 		private String label = "";
-		private Map<String, Object> credentials = new HashMap<String, Object>();
+		private final Map<String, Object> credentials = new HashMap<>();
 
 		public ServiceDataBuilder withTags(String... tags) {
 			this.tags = tags;
@@ -153,7 +153,7 @@ public class CloudFoundryServiceInfoCreatorTest {
 		}
 
 		public Map<String, Object> build() {
-			Map<String, Object> serviceData = new HashMap<String, Object>();
+			Map<String, Object> serviceData = new HashMap<>();
 
 			serviceData.put("tags", Arrays.asList(tags));
 			serviceData.put("label", label);

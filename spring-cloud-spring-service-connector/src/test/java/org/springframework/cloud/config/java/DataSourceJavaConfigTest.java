@@ -140,7 +140,7 @@ class DatasourceConfigWithServiceConfig extends AbstractCloudConfig {
 
 	@Bean
 	public DataSource dataSourceWithConnectionPropertiesConfig() {
-		Map<String, Object> properties = new HashMap<String, Object>();
+		Map<String, Object> properties = new HashMap<>();
 		properties.put("driverClassName", "test.driver");
 		properties.put("validationQuery", "test validation query");
 		properties.put("testOnBorrow", false);

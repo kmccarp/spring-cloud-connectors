@@ -19,7 +19,7 @@ public final class LocalConfigUtil {
 
 	static List<UriBasedServiceData> readServicesData(LinkedHashMap<String, Properties> propertySources) {
 		// we'll turn this into KVPs to return but need to eliminate duplicates first
-		Map<String, String> collectedServices = new HashMap<String, String>();
+		Map<String, String> collectedServices = new HashMap<>();
 
 		// iterate over the property sources in order, extracting matching properties
 		for (Map.Entry<String, Properties> propertySource : propertySources.entrySet()) {
@@ -33,15 +33,16 @@ public final class LocalConfigUtil {
 			// add each of the found services to the list, warning about duplicates
 			for (Map.Entry<String, String> service : services.entrySet()) {
 				String oldUri = collectedServices.put(service.getKey(), service.getValue());
-				if (oldUri == null)
+				if (oldUri == null) {
 					logger.info("added service '" + service.getKey() + "' from " + propertySource.getKey());
-				else
+				} else {
 					logger.warning("replaced service '" + service.getKey() + "' with new URI from " + propertySource.getKey());
+				}
 			}
 		}
 
 		// now we have a collated set of service IDs and URIs
-		List<UriBasedServiceData> serviceData = new ArrayList<UriBasedServiceData>(collectedServices.size());
+		List<UriBasedServiceData> serviceData = new ArrayList<>(collectedServices.size());
 		for (Map.Entry<String, String> serviceInfo : collectedServices.entrySet()) {
 			serviceData.add(new UriBasedServiceData(serviceInfo.getKey(), serviceInfo.getValue()));
 		}
@@ -57,7 +58,7 @@ public final class LocalConfigUtil {
 	 * @return all of the service definitions found
 	 */
 	static Map<String, String> readServices(Properties properties) {
-		Map<String, String> services = new HashMap<String, String>();
+		Map<String, String> services = new HashMap<>();
 
 		for (String propertyName : properties.stringPropertyNames()) {
 			if (LocalConfigConnector.META_PROPERTIES.contains(propertyName)) {

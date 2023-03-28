@@ -9,7 +9,7 @@ public class TestServiceInfoCreator implements ServiceInfoCreator<TestServiceInf
 
 	@Override
 	public boolean accept(TestServiceData serviceData) {
-		return serviceData.getTag().equals("test-tag");
+		return "test-tag".equals(serviceData.getTag());
 	}
 
 	@Override

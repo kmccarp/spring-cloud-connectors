@@ -9,9 +9,9 @@ import org.springframework.cloud.service.ServiceConnectorConfig;
  * @author Ramnivas Laddad
  */
 public class MongoDbFactoryConfig implements ServiceConnectorConfig {
-	private String writeConcern;
-	private Integer connectionsPerHost;
-	private Integer maxWaitTime;
+	private final String writeConcern;
+	private final Integer connectionsPerHost;
+	private final Integer maxWaitTime;
 
 	public MongoDbFactoryConfig(String writeConcern, Integer connectionsPerHost, Integer maxWaitTime) {
 		this.writeConcern = writeConcern;

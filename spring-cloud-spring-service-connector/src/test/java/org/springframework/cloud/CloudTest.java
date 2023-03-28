@@ -37,7 +37,7 @@ public class CloudTest extends StubCloudConnectorTest {
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
 		
-		serviceCreators = new ArrayList<ServiceConnectorCreator<?, ? extends ServiceInfo>>();
+		serviceCreators = new ArrayList<>();
 		serviceCreators.add(new MysqlDataSourceCreator());
 	}
 	

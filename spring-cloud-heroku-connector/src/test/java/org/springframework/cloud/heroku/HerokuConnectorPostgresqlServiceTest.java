@@ -31,7 +31,7 @@ public class HerokuConnectorPostgresqlServiceTest extends AbstractHerokuConnecto
 	}
 
 	private void assertPostgresServiceCreated(String envVarName, String serviceInstanceName) {
-		Map<String, String> env = new HashMap<String, String>();
+		Map<String, String> env = new HashMap<>();
 		String postgresUrl = getRelationalServiceUrl("db");
 		env.put(envVarName, postgresUrl);
 		when(mockEnvironment.getEnv()).thenReturn(env);

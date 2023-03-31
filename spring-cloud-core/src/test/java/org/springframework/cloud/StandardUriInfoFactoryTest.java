@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class StandardUriInfoFactoryTest {
 
-	private static StandardUriInfoFactory factory = new StandardUriInfoFactory();
+	private static final StandardUriInfoFactory factory = new StandardUriInfoFactory();
 
 	@Test
 	public void createUri() {

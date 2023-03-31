@@ -29,13 +29,13 @@ public class RabbitConnectionFactoryCloudConfigTestHelper {
 	public static final Integer DEFAULT_CHANNEL_CACHE_SIZE =
 			(Integer) ReflectionTestUtils.getField(new org.springframework.amqp.rabbit.connection.CachingConnectionFactory(), "channelCacheSize");
 
-	public final static Integer DEFAULT_CONNECTION_LIMIT =
+	public static final Integer DEFAULT_CONNECTION_LIMIT =
 			(Integer) ReflectionTestUtils.getField(new org.springframework.amqp.rabbit.connection.CachingConnectionFactory(), "connectionLimit");
 
-	private final static Integer DEFAULT_FACTORY_TIMEOUT =
+	private static final Integer DEFAULT_FACTORY_TIMEOUT =
 			(Integer) ReflectionTestUtils.getField(new com.rabbitmq.client.ConnectionFactory(), "connectionTimeout");
 
-	private final static Integer DEFAULT_FACTORY_HEARTBEAT =
+	private static final Integer DEFAULT_FACTORY_HEARTBEAT =
 			(Integer) ReflectionTestUtils.getField(new com.rabbitmq.client.ConnectionFactory(), "requestedHeartbeat");
 
 	public static void assertConfigProperties(ConnectionFactory connector, Integer channelCacheSize,

@@ -50,7 +50,7 @@ public class CloudNamespaceHandler extends NamespaceHandlerSupport {
 	}
 	
 	public static class ServiceScanBeanFactoryProcessor implements BeanFactoryPostProcessor {
-	    private CloudScanHelper helper = new CloudScanHelper();
+		private final CloudScanHelper helper = new CloudScanHelper();
 	    
 	    @Override
 	    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {

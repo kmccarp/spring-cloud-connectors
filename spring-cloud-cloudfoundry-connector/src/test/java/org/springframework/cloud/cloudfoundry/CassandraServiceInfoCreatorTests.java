@@ -34,7 +34,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class CassandraServiceInfoCreatorTests extends AbstractCloudFoundryConnectorTest {
 
-	private ObjectMapper mapper = new ObjectMapper();
+	private final ObjectMapper mapper = new ObjectMapper();
 
 	@Test
 	public void shouldCreateServiceInfo() throws Exception {

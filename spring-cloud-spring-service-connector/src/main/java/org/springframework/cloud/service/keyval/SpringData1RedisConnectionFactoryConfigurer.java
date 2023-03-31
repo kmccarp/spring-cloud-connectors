@@ -18,8 +18,8 @@ import redis.clients.jedis.JedisPoolConfig;
  *
  */
 public class SpringData1RedisConnectionFactoryConfigurer implements ServiceConnectorConfigurer<JedisConnectionFactory, RedisConnectionFactoryConfig> {
-    private MapServiceConnectionConfigurer<JedisConnectionFactory, MapServiceConnectorConfig> mapServiceConnectionConfigurer =
-        new MapServiceConnectionConfigurer<JedisConnectionFactory, MapServiceConnectorConfig>();
+	private final MapServiceConnectionConfigurer<JedisConnectionFactory, MapServiceConnectorConfig> mapServiceConnectionConfigurer =
+			new MapServiceConnectionConfigurer<>();
 
     @Override
     public JedisConnectionFactory configure(JedisConnectionFactory connectionFactory, RedisConnectionFactoryConfig config) {

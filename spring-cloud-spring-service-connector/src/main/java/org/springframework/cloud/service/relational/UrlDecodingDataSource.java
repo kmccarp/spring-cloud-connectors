@@ -55,7 +55,7 @@ class UrlDecodingDataSource extends DelegatingDataSource {
 	private final String urlPropertyName;
 	private final Function<String, DataSource> connectionTestDataSourceFactory;
 
-	private volatile boolean successfullyConnected = false;
+	private volatile boolean successfullyConnected;
 
 	UrlDecodingDataSource(String jdbcUrl) {
 		this(newSimpleDriverDataSource(jdbcUrl), "url");
@@ -73,7 +73,9 @@ class UrlDecodingDataSource extends DelegatingDataSource {
 
 	@Override
 	public Connection getConnection() throws SQLException {
-		if (successfullyConnected) return super.getConnection();
+		if (successfullyConnected) {
+			return super.getConnection();
+		}
 
 		synchronized (this) {
 			Connection connection;
@@ -84,7 +86,9 @@ class UrlDecodingDataSource extends DelegatingDataSource {
 			} catch (SQLException e) {
 				logger.info("Database connection failed. Trying again with url-decoded jdbc url");
 				DataSource targetDataSource = getTargetDataSource();
-				if (targetDataSource == null) throw new IllegalStateException("target DataSource should never be null");
+				if (targetDataSource == null) {
+					throw new IllegalStateException("target DataSource should never be null");
+				}
 				BeanWrapper dataSourceWrapper = new BeanWrapperImpl(targetDataSource);
 				String decodedJdbcUrl = decode((String) dataSourceWrapper.getPropertyValue(urlPropertyName));
 				DataSource urlDecodedConnectionTestDataSource = connectionTestDataSourceFactory.apply(decodedJdbcUrl);

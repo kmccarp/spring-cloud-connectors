@@ -40,8 +40,8 @@ import org.springframework.cloud.service.ServiceInfo.ServiceProperty;
  *
  */
 public class Cloud {
-	private CloudConnector cloudConnector;
-	private ServiceConnectorCreatorRegistry serviceConnectorCreatorRegistry = new ServiceConnectorCreatorRegistry();
+	private final CloudConnector cloudConnector;
+	private final ServiceConnectorCreatorRegistry serviceConnectorCreatorRegistry = new ServiceConnectorCreatorRegistry();
 
 	/**
 	 * Package-access constructor.
@@ -377,9 +377,9 @@ public class Cloud {
 }
 
 class ServiceConnectorCreatorRegistry {
-	private static Logger logger = Logger.getLogger(Cloud.class.getName());
+	private static final Logger logger = Logger.getLogger(Cloud.class.getName());
 
-	private List<ServiceConnectorCreator<?, ? extends ServiceInfo>> serviceConnectorCreators = new ArrayList<>();
+	private final List<ServiceConnectorCreator<?, ? extends ServiceInfo>> serviceConnectorCreators = new ArrayList<>();
 
 	public void registerCreator(ServiceConnectorCreator<?, ? extends ServiceInfo> serviceConnectorCreator) {
 		serviceConnectorCreators.add(serviceConnectorCreator);

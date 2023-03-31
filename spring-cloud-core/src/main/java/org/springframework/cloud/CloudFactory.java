@@ -28,8 +28,8 @@ import org.springframework.cloud.util.ServiceLoaderWithExceptionControl;
  *
  */
 public class CloudFactory {
-	private List<CloudConnector> cloudConnectors = new ArrayList<CloudConnector>();
-	private List<ServiceConnectorCreator<?, ? extends ServiceInfo>> serviceCreators = new ArrayList<ServiceConnectorCreator<?, ? extends ServiceInfo>>();
+	private final List<CloudConnector> cloudConnectors = new ArrayList<>();
+	private final List<ServiceConnectorCreator<?, ? extends ServiceInfo>> serviceCreators = new ArrayList<>();
 
 	public CloudFactory() {
 		scanCloudConnectors();

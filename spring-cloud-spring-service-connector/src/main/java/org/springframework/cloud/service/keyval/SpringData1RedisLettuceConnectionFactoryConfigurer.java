@@ -9,8 +9,8 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
  * @author Mark Paluch
  */
 public class SpringData1RedisLettuceConnectionFactoryConfigurer implements ServiceConnectorConfigurer<LettuceConnectionFactory, RedisConnectionFactoryConfig> {
-    private MapServiceConnectionConfigurer<LettuceConnectionFactory, MapServiceConnectorConfig> mapServiceConnectionConfigurer =
-        new MapServiceConnectionConfigurer<LettuceConnectionFactory, MapServiceConnectorConfig>();
+	private final MapServiceConnectionConfigurer<LettuceConnectionFactory, MapServiceConnectorConfig> mapServiceConnectionConfigurer =
+			new MapServiceConnectionConfigurer<>();
 
     @Override
     public LettuceConnectionFactory configure(LettuceConnectionFactory connectionFactory, RedisConnectionFactoryConfig config) {

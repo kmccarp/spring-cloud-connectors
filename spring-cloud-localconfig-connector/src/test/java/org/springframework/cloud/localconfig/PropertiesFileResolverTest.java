@@ -13,7 +13,7 @@ public class PropertiesFileResolverTest {
 
 	private PropertiesFileResolver resolver;
 
-	private String PROPERTIES_FILE_NAME = separator + "foo" + separator + "bar.properties";
+	private final String propertiesFileName = separator + "foo" + separator + "bar.properties";
 
 	@Before
 	public void setDefaults() {
@@ -38,8 +38,8 @@ public class PropertiesFileResolverTest {
 
 	@Test
 	public void testSystemProperty() {
-		env.setSystemProperty(LocalConfigConnector.PROPERTIES_FILE_PROPERTY, PROPERTIES_FILE_NAME);
-		assertEquals(PROPERTIES_FILE_NAME, resolver.findCloudPropertiesFileFromSystem().getPath());
+		env.setSystemProperty(LocalConfigConnector.PROPERTIES_FILE_PROPERTY, propertiesFileName);
+		assertEquals(propertiesFileName, resolver.findCloudPropertiesFileFromSystem().getPath());
 	}
 
 	@Test
@@ -57,7 +57,7 @@ public class PropertiesFileResolverTest {
 	@Test
 	public void testLiteral() {
 		resolver = new PropertiesFileResolver(env, "spring-cloud-literal.properties");
-		assertEquals(PROPERTIES_FILE_NAME,
+		assertEquals(propertiesFileName,
 				resolver.findCloudPropertiesFileFromClasspath().getPath());
 	}
 
@@ -65,21 +65,21 @@ public class PropertiesFileResolverTest {
 	public void testTemplate() {
 		resolver = new PropertiesFileResolver(env, "spring-cloud-template.properties");
 		env.setSystemProperty("user.home", "/foo");
-		assertEquals(PROPERTIES_FILE_NAME,
+		assertEquals(propertiesFileName,
 				resolver.findCloudPropertiesFileFromClasspath().getPath());
 	}
 
 	@Test
 	public void testFromSystem() {
-		env.setSystemProperty(LocalConfigConnector.PROPERTIES_FILE_PROPERTY, PROPERTIES_FILE_NAME);
-		assertEquals(PROPERTIES_FILE_NAME, resolver.findCloudPropertiesFile().getPath());
+		env.setSystemProperty(LocalConfigConnector.PROPERTIES_FILE_PROPERTY, propertiesFileName);
+		assertEquals(propertiesFileName, resolver.findCloudPropertiesFile().getPath());
 	}
 
 	@Test
 	public void testFromClasspath() {
 		resolver = new PropertiesFileResolver(env, "spring-cloud-template.properties");
 		env.setSystemProperty("user.home", "/foo");
-		assertEquals(PROPERTIES_FILE_NAME,
+		assertEquals(propertiesFileName,
 				resolver.findCloudPropertiesFile().getPath());
 	}
 
@@ -90,8 +90,8 @@ public class PropertiesFileResolverTest {
 
 	@Test
 	public void testPrecedence() {
-		env.setSystemProperty(LocalConfigConnector.PROPERTIES_FILE_PROPERTY, PROPERTIES_FILE_NAME);
+		env.setSystemProperty(LocalConfigConnector.PROPERTIES_FILE_PROPERTY, propertiesFileName);
 		resolver = new PropertiesFileResolver(env, "spring-cloud-literal.properties");
-		assertEquals(PROPERTIES_FILE_NAME, resolver.findCloudPropertiesFile().getPath());
+		assertEquals(propertiesFileName, resolver.findCloudPropertiesFile().getPath());
 	}
 }

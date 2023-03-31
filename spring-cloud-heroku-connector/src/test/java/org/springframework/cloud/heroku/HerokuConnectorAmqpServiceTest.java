@@ -21,7 +21,7 @@ public class HerokuConnectorAmqpServiceTest extends AbstractHerokuConnectorTest 
 
 	@Test
 	public void amqpServiceCreation() {
-		Map<String, String> env = new HashMap<String, String>();
+		Map<String, String> env = new HashMap<>();
 		String amqpUrl = getAmqpServiceUrl("db");
 		env.put("CLOUDAMQP_URL", amqpUrl);
 		when(mockEnvironment.getEnv()).thenReturn(env);

@@ -3,7 +3,7 @@ package org.springframework.cloud.cloudfoundry;
 import java.util.List;
 
 public class Tags {
-	private String[] values;
+	private final String[] values;
 
 	public Tags(String... values) {
 		this.values = values;

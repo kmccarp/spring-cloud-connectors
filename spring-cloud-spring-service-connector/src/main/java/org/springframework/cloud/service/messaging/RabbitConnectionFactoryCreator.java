@@ -19,8 +19,8 @@ import java.net.URISyntaxException;
  * @author Scott Frederick
  */
 public class RabbitConnectionFactoryCreator extends	AbstractServiceConnectorCreator<ConnectionFactory, AmqpServiceInfo> {
-	private RabbitConnectionFactoryConfigurer rabbitConfigurer = new RabbitConnectionFactoryConfigurer();
-	private SpringConnectionFactoryConfigurer springConfigurer = new SpringConnectionFactoryConfigurer();
+	private final RabbitConnectionFactoryConfigurer rabbitConfigurer = new RabbitConnectionFactoryConfigurer();
+	private final SpringConnectionFactoryConfigurer springConfigurer = new SpringConnectionFactoryConfigurer();
 
 	@Override
 	public ConnectionFactory create(AmqpServiceInfo serviceInfo, ServiceConnectorConfig serviceConnectorConfiguration) {
@@ -40,7 +40,7 @@ public class RabbitConnectionFactoryCreator extends	AbstractServiceConnectorCrea
 		com.rabbitmq.client.ConnectionFactory connectionFactory = new com.rabbitmq.client.ConnectionFactory();
 		connectionFactory.setAutomaticRecoveryEnabled(false);
 		
-		if (serviceInfo.getUris() != null && serviceInfo.getUris().size() > 0) {
+		if (serviceInfo.getUris() != null && !serviceInfo.getUris().isEmpty()) {
 			setConnectionFactoryUri(connectionFactory, serviceInfo.getUris().get(0));
 		} else {
 			setConnectionFactoryUri(connectionFactory, serviceInfo.getUri());

@@ -9,7 +9,7 @@ import static org.junit.Assert.assertTrue;
 
 public class TagsTest {
 
-	private final Tags EMPTY_TAGS = new Tags();
+	private final Tags emptyTags = new Tags();
 
 	@Test
 	public void containsOne() {
@@ -22,7 +22,7 @@ public class TagsTest {
 
 	@Test
 	public void containsOneWithEmptyTags() {
-		assertFalse(EMPTY_TAGS.containsOne(Arrays.asList("test")));
+		assertFalse(emptyTags.containsOne(Arrays.asList("test")));
 	}
 
 	@Test
@@ -36,7 +36,7 @@ public class TagsTest {
 
 	@Test
 	public void containsWithEmptyTags() {
-		assertFalse(EMPTY_TAGS.contains("test"));
+		assertFalse(emptyTags.contains("test"));
 	}
 
 	@Test
@@ -49,6 +49,6 @@ public class TagsTest {
 
 	@Test
 	public void startsWithWithEmptyTags() {
-		assertFalse(EMPTY_TAGS.startsWith("test"));
+		assertFalse(emptyTags.startsWith("test"));
 	}
 }

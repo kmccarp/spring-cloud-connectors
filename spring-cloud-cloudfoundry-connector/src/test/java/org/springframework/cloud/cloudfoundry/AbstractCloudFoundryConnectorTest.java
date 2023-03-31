@@ -37,7 +37,7 @@ public abstract class AbstractCloudFoundryConnectorTest {
 	protected static String username = "myuser";
 	protected static final String password = "mypass";
 
-	private static ObjectMapper objectMapper = new ObjectMapper();
+	private static final ObjectMapper objectMapper = new ObjectMapper();
 	
 	@Before
 	public void setup() {
@@ -68,14 +68,14 @@ public abstract class AbstractCloudFoundryConnectorTest {
 	}
 	
 	protected static String getServicesPayload(String... servicePayloads) {
-		Map<String, List<String>> labelPayloadMap = new HashMap<String, List<String>>();
+		Map<String, List<String>> labelPayloadMap = new HashMap<>();
 		
 		for (String payload: servicePayloads) {
 			String label = getServiceLabel(payload);
 			
 			List<String> payloadsForLabel = labelPayloadMap.get(label);
 			if (payloadsForLabel == null) {
-				payloadsForLabel = new ArrayList<String>();
+				payloadsForLabel = new ArrayList<>();
 				labelPayloadMap.put(label, payloadsForLabel);
 			}
 			payloadsForLabel.add(payload);

@@ -37,16 +37,18 @@ public class PooledDataSourceCreatorsTest {
 	private static final int DEFAULT_MAX_WAIT_TIME = 30000;
 
 	private static final String CONNECTION_PROPERTIES_STRING = "useUnicode=true;characterEncoding=UTF-8";
-	private static final Properties CONNECTION_PROPERTIES = new Properties() {{
-		setProperty("useUnicode", "true");
-		setProperty("characterEncoding", "UTF-8");
-	}};
+	private static final Properties CONNECTION_PROPERTIES;
+	static {
+		CONNECTION_PROPERTIES = new Properties<>();
+		CONNECTION_PROPERTIES.setProperty("useUnicode", "true");
+		CONNECTION_PROPERTIES.setProperty("characterEncoding", "UTF-8");
+	}
 
 	@Mock
 	private MysqlServiceInfo mockMysqlServiceInfo;
 
 	// Just to grab driver class name and validation query string 
-	private MysqlDataSourceCreator mysqlDataSourceCreator = new MysqlDataSourceCreator();
+	private final MysqlDataSourceCreator mysqlDataSourceCreator = new MysqlDataSourceCreator();
 
 	@Before
 	public void setup() {

@@ -22,7 +22,7 @@ public class CloudPropertiesFactoryBean implements FactoryBean<Properties>, Bean
 
 	private BeanFactory beanFactory;
 	private Cloud cloud;
-	private final String CLOUD_FACTORY_BEAN_NAME = "__cloud_factory__";
+	private final String cloudFactoryBeanName = "__cloud_factory__";
 
 	@Override
 	public boolean isSingleton() {
@@ -50,7 +50,7 @@ public class CloudPropertiesFactoryBean implements FactoryBean<Properties>, Bean
 		
 		if (cloud == null) {
 			if(listableBeanFactory.getBeansOfType(CloudFactory.class).isEmpty()) {
-				listableBeanFactory.registerSingleton(CLOUD_FACTORY_BEAN_NAME , new CloudFactory());
+				listableBeanFactory.registerSingleton(cloudFactoryBeanName , new CloudFactory());
 			}
 			CloudFactory cloudFactory = listableBeanFactory.getBeansOfType(CloudFactory.class).values().iterator().next();
 			cloud = cloudFactory.getCloud();

@@ -30,7 +30,7 @@ public class RabbitConnectionFactoryCreatorTest {
 	private static final String TEST_PASSWORD = "mypass";
 	private static final String TEST_VH = "myVirtualHost";
 
-	private RabbitConnectionFactoryCreator testCreator = new RabbitConnectionFactoryCreator();
+	private final RabbitConnectionFactoryCreator testCreator = new RabbitConnectionFactoryCreator();
 
 	@Test
 	public void cloudRabbitCreationNoUri() throws Exception {

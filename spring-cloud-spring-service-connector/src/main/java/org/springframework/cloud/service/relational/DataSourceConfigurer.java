@@ -17,8 +17,8 @@ import org.springframework.cloud.service.PooledServiceConnectorConfigurer;
  *
  */
 public class DataSourceConfigurer extends PooledServiceConnectorConfigurer<DataSource, DataSourceConfig> {
-	private MapServiceConnectionConfigurer<DataSource, MapServiceConnectorConfig> mapServiceConnectionConfigurer =
-			new MapServiceConnectionConfigurer<>();
+	private final MapServiceConnectionConfigurer<DataSource, MapServiceConnectorConfig> mapServiceConnectionConfigurer =
+new MapServiceConnectionConfigurer<>();
 
 	@Override
 	public DataSource configure(DataSource dataSource, DataSourceConfig config) {

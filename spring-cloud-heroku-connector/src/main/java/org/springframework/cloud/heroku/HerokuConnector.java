@@ -65,7 +65,7 @@ public class HerokuConnector extends AbstractCloudConnector<UriBasedServiceData>
 
 		// need to do this since this method gets called during construction and we cannot initialize serviceEnvPrefixes before this
 		if (serviceEnvPrefixes == null) {
-			serviceEnvPrefixes = new ArrayList<String>();
+			serviceEnvPrefixes = new ArrayList<>();
 		}
 		serviceEnvPrefixes.addAll(Arrays.asList(envPrefixes));
 	}
@@ -79,7 +79,7 @@ public class HerokuConnector extends AbstractCloudConnector<UriBasedServiceData>
 	 * @return information about services bound to the app
 	 */
 	protected List<UriBasedServiceData> getServicesData() {
-		List<UriBasedServiceData> serviceData = new ArrayList<UriBasedServiceData>();
+		List<UriBasedServiceData> serviceData = new ArrayList<>();
 
 		Map<String, String> env = environment.getEnv();
 

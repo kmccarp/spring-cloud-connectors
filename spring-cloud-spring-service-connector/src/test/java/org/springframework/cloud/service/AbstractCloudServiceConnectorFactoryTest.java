@@ -55,7 +55,7 @@ public abstract class AbstractCloudServiceConnectorFactoryTest<SCF extends Abstr
 	public void creatingServiceConnectorWithoutIdReturnsTheSignletonService() throws Exception {
 		String id = "my-service";
 		
-		List<ServiceInfo> serviceInfos = new ArrayList<ServiceInfo>();
+		List<ServiceInfo> serviceInfos = new ArrayList<>();
 		serviceInfos.add(getTestServiceInfo(id));
 		
 		when(mockCloud.getServiceConnector(id, getConnectorType(), null)).thenReturn(getMockConnector());

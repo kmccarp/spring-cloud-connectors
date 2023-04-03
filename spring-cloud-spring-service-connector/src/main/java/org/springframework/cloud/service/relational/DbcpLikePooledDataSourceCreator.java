@@ -20,7 +20,7 @@ public abstract class DbcpLikePooledDataSourceCreator<SI extends RelationalServi
 
 	protected static Logger logger = Logger.getLogger(PooledDataSourceCreator.class.getName());
 
-	private DataSourceConfigurer configurer = new DataSourceConfigurer();
+	private final DataSourceConfigurer configurer = new DataSourceConfigurer();
 
 	protected void setBasicDataSourceProperties(DataSource basicDataSource, RelationalServiceInfo serviceInfo,
 											   ServiceConnectorConfig serviceConnectorConfig,

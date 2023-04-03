@@ -37,7 +37,7 @@ public class MongoServiceConnectorCreatorTest {
 	private static final String MONGODB_SCHEME = "mongodb";
 	private static final String[] TEST_HOSTS = new String[] { TEST_HOST, TEST_HOST_1, TEST_HOST_2 };
 
-	private MongoDbFactoryCreator testCreator = new MongoDbFactoryCreator();
+	private final MongoDbFactoryCreator testCreator = new MongoDbFactoryCreator();
 
 	@Test
 	public void cloudMongoCreationNoConfig() throws Exception {

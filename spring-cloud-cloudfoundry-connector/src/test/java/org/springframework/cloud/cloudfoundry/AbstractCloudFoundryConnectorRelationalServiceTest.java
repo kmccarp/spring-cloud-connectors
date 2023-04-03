@@ -41,7 +41,7 @@ public abstract class AbstractCloudFoundryConnectorRelationalServiceTest extends
 	protected String getJdbcUrl(String databaseType, String name) {
 	    // this should be cleaned up more broadly; pull into RelationalServiceInfo interface?
 		String jdbcUrlDatabaseType = databaseType;
-		if (databaseType.equals("postgres")) {
+		if ("postgres".equals(databaseType)) {
 			jdbcUrlDatabaseType = "postgresql";
 		}
 

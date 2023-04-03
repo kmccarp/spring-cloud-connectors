@@ -13,9 +13,9 @@ import org.springframework.cloud.app.ApplicationInstanceInfo;
  */
 public class BasicApplicationInstanceInfo implements ApplicationInstanceInfo {
 
-	private String instanceId;
-	private String appId;
-	private Map<String, Object> properties;
+	private final String instanceId;
+	private final String appId;
+	private final Map<String, Object> properties;
 
 	public BasicApplicationInstanceInfo(String instanceId, String appId, Map<String, Object> properties) {
 		this.instanceId = instanceId;

@@ -30,7 +30,7 @@ import org.springframework.cloud.service.UriBasedServiceInfo;
 public class CloudTestUtil {
 
 	public static class StubCloudConnector implements CloudConnector {
-		private List<ServiceInfo> serviceInfos = new ArrayList<ServiceInfo>();
+		private final List<ServiceInfo> serviceInfos = new ArrayList<>();
 		private ApplicationInstanceInfo applicationInstance = new StubApplicationInstanceInfo("default-app-instance", "default-app", Collections.<String, Object> emptyMap());
 	
 		@Override
@@ -58,10 +58,10 @@ public class CloudTestUtil {
 		}
 	}
 	
-	static public class StubApplicationInstanceInfo implements ApplicationInstanceInfo {
-		private String instanceId;
-		private String appId;
-		private Map<String, Object> properties;
+	public static class StubApplicationInstanceInfo implements ApplicationInstanceInfo {
+		private final String instanceId;
+		private final String appId;
+		private final Map<String, Object> properties;
 
 		public StubApplicationInstanceInfo(String instanceId, String appId, Map<String, Object> properties) {
 			this.instanceId = instanceId;
@@ -111,8 +111,8 @@ public class CloudTestUtil {
 	}
 
 	public static class StubCompositeServiceInfo implements CompositeServiceInfo {
-        private String id;
-	    private List<ServiceInfo> constituents;
+		private final String id;
+		private final List<ServiceInfo> constituents;
 
         public StubCompositeServiceInfo(String id, ServiceInfo... constituents) {
             this.id = id;

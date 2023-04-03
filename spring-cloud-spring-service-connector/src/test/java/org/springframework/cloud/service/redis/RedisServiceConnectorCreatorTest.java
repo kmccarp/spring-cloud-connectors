@@ -28,8 +28,8 @@ public class RedisServiceConnectorCreatorTest {
 
 
 	@Mock private RedisServiceInfo mockRedisServiceInfo;
-	
-	private RedisConnectionFactoryCreator testCreator = new RedisConnectionFactoryCreator();
+
+	private final RedisConnectionFactoryCreator testCreator = new RedisConnectionFactoryCreator();
 
 	@Before
 	public void setup() {

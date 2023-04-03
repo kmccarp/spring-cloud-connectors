@@ -18,8 +18,8 @@ import org.springframework.cloud.service.Util;
  *
  */
 public class RedisLettuceClientConfigurer implements ServiceConnectorConfigurer<LettuceClientConfigurationBuilder, RedisConnectionFactoryConfig> {
-	private MapServiceConnectionConfigurer<LettuceClientConfigurationBuilder, MapServiceConnectorConfig> mapClientConfigurer =
-			new MapServiceConnectionConfigurer<>();
+	private final MapServiceConnectionConfigurer<LettuceClientConfigurationBuilder, MapServiceConnectorConfig> mapClientConfigurer =
+new MapServiceConnectionConfigurer<>();
 
 	@Override
 	public LettuceClientConfigurationBuilder configure(LettuceClientConfigurationBuilder clientConfiguration, RedisConnectionFactoryConfig config) {

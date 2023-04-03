@@ -44,12 +44,9 @@ class StubbedOpenFileLocalConfigConnector extends LocalConfigConnector {
 	 * @param stream the contents to return
 	 */
 	static InputStreamProvider fileContentsFromStream(final String expectedFilename, final InputStream stream) {
-		return new InputStreamProvider() {
-			@Override
-			public InputStream openFile(File file) throws IOException {
-				assertEquals(expectedFilename, file.getPath());
-				return stream;
-			}
+		return file -> {
+			assertEquals(expectedFilename, file.getPath());
+			return stream;
 		};
 	}
 

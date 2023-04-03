@@ -14,8 +14,8 @@ import org.springframework.cloud.service.ServiceInfo;
  */
 public abstract class CloudFoundryServiceInfoCreator<SI extends ServiceInfo> implements ServiceInfoCreator<SI, Map<String, Object>> {
 
-	private Tags tags;
-	private String[] uriSchemes;
+	private final Tags tags;
+	private final String[] uriSchemes;
 
 	public CloudFoundryServiceInfoCreator(Tags tags, String... uriSchemes) {
 		this.tags = tags;
@@ -83,7 +83,7 @@ public abstract class CloudFoundryServiceInfoCreator<SI extends ServiceInfo> imp
 	}
 
 	protected String getUriFromCredentials(Map<String, Object> credentials) {
-		List<String> keys = new ArrayList<String>();
+		List<String> keys = new ArrayList<>();
 		keys.addAll(Arrays.asList("uri", "url"));
 
 		for (String uriScheme : uriSchemes) {

@@ -10,7 +10,7 @@ import org.springframework.util.StringUtils;
  * @author Thomas Risberg
  */
 public class PooledServiceConnectorConfig implements ServiceConnectorConfig {
-	private PoolConfig poolConfig;
+	private final PoolConfig poolConfig;
 
 	public PooledServiceConnectorConfig(PoolConfig poolConfig) {
 		this.poolConfig = poolConfig;

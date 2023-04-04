@@ -17,7 +17,7 @@ import org.w3c.dom.Element;
 public class GenericCloudServiceFactoryParser extends AbstractCloudServiceFactoryParser {
 
 	private static final String CONNECTOR_TYPE = "connector-type";
-	private Class<?> connectorType = null;
+	private Class<?> connectorType;
 
 	public GenericCloudServiceFactoryParser() {
 		super(GenericCloudServiceConnectorFactory.class);

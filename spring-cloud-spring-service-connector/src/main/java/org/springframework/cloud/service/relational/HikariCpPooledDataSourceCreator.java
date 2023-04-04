@@ -18,7 +18,7 @@ public class HikariCpPooledDataSourceCreator<SI extends RelationalServiceInfo> i
 
 	public static final String HIKARI_DATASOURCE = "com.zaxxer.hikari.HikariDataSource";
 
-	private DataSourceConfigurer configurer = new DataSourceConfigurer();
+	private final DataSourceConfigurer configurer = new DataSourceConfigurer();
 
 	protected void setBasicDataSourceProperties(DataSource basicDataSource, RelationalServiceInfo serviceInfo,
 												ServiceConnectorConfig serviceConnectorConfig,

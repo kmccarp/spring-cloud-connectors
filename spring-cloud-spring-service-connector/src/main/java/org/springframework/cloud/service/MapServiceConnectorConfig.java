@@ -8,7 +8,7 @@ import java.util.Map;
  * @author Scott Frederick
  */
 public class MapServiceConnectorConfig implements ServiceConnectorConfig {
-	private Map<String, Object> properties;
+	private final Map<String, Object> properties;
 
 	public MapServiceConnectorConfig(Map<String, Object> properties) {
 		this.properties = properties;

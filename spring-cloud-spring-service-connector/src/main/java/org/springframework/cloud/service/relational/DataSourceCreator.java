@@ -25,12 +25,12 @@ public abstract class DataSourceCreator<SI extends RelationalServiceInfo> extend
 
 	protected static Logger logger = Logger.getLogger(DataSourceCreator.class.getName());
 
-	private String driverSystemPropKey;
-	private String[] driverClasses;
-	private String validationQuery;
+	private final String driverSystemPropKey;
+	private final String[] driverClasses;
+	private final String validationQuery;
 
-	private Map<String, PooledDataSourceCreator<SI>> pooledDataSourceCreators =
-			new LinkedHashMap<>();
+	private final Map<String, PooledDataSourceCreator<SI>> pooledDataSourceCreators =
+new LinkedHashMap<>();
 
 	public DataSourceCreator(String driverSystemPropKey, String[] driverClasses, String validationQuery) {
 		this.driverSystemPropKey = driverSystemPropKey;

@@ -19,7 +19,7 @@ public class SmtpServiceConnectorCreatorTest {
 	private static final String TEST_USERNAME = "myuser";
 	private static final String TEST_PASSWORD = "mypass";
 
-	private MailSenderCreator testCreator = new MailSenderCreator();
+	private final MailSenderCreator testCreator = new MailSenderCreator();
 
 	@Test
 	public void cloudMailSenderCreation() throws Exception {

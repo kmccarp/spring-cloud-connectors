@@ -13,7 +13,8 @@ import org.springframework.cloud.service.UriBasedServiceData;
 
 public class LocalConfigUtilTest {
 
-	private Properties first, second;
+	private Properties first;
+	private Properties second;
 
 	private LinkedHashMap<String, Properties> propertySources;
 
@@ -22,7 +23,7 @@ public class LocalConfigUtilTest {
 		first = new Properties();
 		second = new Properties();
 
-		propertySources = new LinkedHashMap<String, Properties>();
+		propertySources = new LinkedHashMap<>();
 		propertySources.put("first", first);
 		propertySources.put("second", second);
 	}
@@ -51,7 +52,7 @@ public class LocalConfigUtilTest {
 		boolean foundFirst = false;
 
 		for (UriBasedServiceData kvp : serviceData) {
-			if (kvp.getKey().equals("first")) {
+			if ("first".equals(kvp.getKey())) {
 				assertEquals("firstUri", kvp.getUri());
 				foundFirst = true;
 			}

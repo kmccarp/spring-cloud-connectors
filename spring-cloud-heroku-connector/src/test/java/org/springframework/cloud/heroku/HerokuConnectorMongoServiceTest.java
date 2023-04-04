@@ -22,7 +22,7 @@ public class HerokuConnectorMongoServiceTest extends AbstractHerokuConnectorTest
 	@Test
 	public void mongoServiceCreation() {
 		for (String mongoEnv : new String[]{"MONGOLAB_URI", "MONGOHQ_URL", "MONGOSOUP_URL"}) {
-			Map<String, String> env = new HashMap<String, String>();
+			Map<String, String> env = new HashMap<>();
 			String mongoUrl = getMongoServiceUrl("db");
 			env.put(mongoEnv, mongoUrl);
 			when(mockEnvironment.getEnv()).thenReturn(env);

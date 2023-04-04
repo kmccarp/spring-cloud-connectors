@@ -22,9 +22,9 @@ import org.springframework.cloud.service.ServiceInfo;
  */
 public abstract class AbstractCloudConnector<SD> implements CloudConnector {
 
-	private static Logger logger = Logger.getLogger(AbstractCloudConnector.class.getName());
+	private static final Logger logger = Logger.getLogger(AbstractCloudConnector.class.getName());
 
-	protected List<ServiceInfoCreator<?,SD>> serviceInfoCreators = new ArrayList<ServiceInfoCreator<?,SD>>();
+	protected List<ServiceInfoCreator<?,SD>> serviceInfoCreators = new ArrayList<>();
 
 	protected abstract List<SD> getServicesData();
 	protected abstract FallbackServiceInfoCreator<?,SD> getFallbackServiceInfoCreator();
@@ -35,7 +35,7 @@ public abstract class AbstractCloudConnector<SD> implements CloudConnector {
 
 	@Override
 	public List<ServiceInfo> getServiceInfos() {
-		List<ServiceInfo> serviceInfos = new ArrayList<ServiceInfo>();
+		List<ServiceInfo> serviceInfos = new ArrayList<>();
 		for (SD serviceData : getServicesData()) {
 			serviceInfos.add(getServiceInfo(serviceData));
 		}

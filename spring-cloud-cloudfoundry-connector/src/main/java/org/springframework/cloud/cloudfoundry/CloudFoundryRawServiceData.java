@@ -12,6 +12,7 @@ import java.util.Map;
  * the JSON.
  */
 public class CloudFoundryRawServiceData extends HashMap<String, List<Map<String,Object>>> {
+	private static final long serialVersionUID = 1;
 	public CloudFoundryRawServiceData() {
 		super();
 	}

@@ -10,7 +10,7 @@ public class StubServiceDataPostProcessor implements ServiceDataPostProcessor {
 		for (List<Map<String, Object>> service : serviceData.values()) {
 			Map<String, Object> serviceMap = service.get(0);
 			String name = (String) serviceMap.get("name");
-			if (name.equals("uppercase")) {
+			if ("uppercase".equals(name)) {
 				Map<String, Object> credentials = (Map<String, Object>) serviceMap.get("credentials");
 				for (Map.Entry<String, Object> entry : credentials.entrySet()) {
 					String upperCaseValue = ((String) entry.getValue()).toUpperCase();

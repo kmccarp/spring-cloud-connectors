@@ -22,7 +22,7 @@ public class HerokuConnectorMysqlServiceTest extends AbstractHerokuConnectorRela
 
 	@Test
 	public void mysqlServiceCreation() {
-		Map<String, String> env = new HashMap<String, String>();
+		Map<String, String> env = new HashMap<>();
 		String mysqlUrl = getRelationalServiceUrl("db");
 		env.put("CLEARDB_DATABASE_URL", mysqlUrl);
 		when(mockEnvironment.getEnv()).thenReturn(env);

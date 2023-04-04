@@ -47,7 +47,7 @@ import org.springframework.cloud.service.ServiceInfo;
  */
 public class CloudScanHelper {
 	private static final String CLOUD_FACTORY_BEAN_NAME = "__cloud_factory__";
-	private static Logger logger = Logger.getLogger(CloudScanHelper.class.getName());
+	private static final Logger logger = Logger.getLogger(CloudScanHelper.class.getName());
 
 	private Cloud cloud;
 
@@ -103,7 +103,7 @@ public class CloudScanHelper {
 	}
 
 	public static class ScannedServiceWrapper implements FactoryBean<Object> {
-		private GenericCloudServiceConnectorFactory cloudServiceConnectorFactory;
+		private final GenericCloudServiceConnectorFactory cloudServiceConnectorFactory;
 
 		public ScannedServiceWrapper(GenericCloudServiceConnectorFactory cloudServiceConnectorFactory) {
 			this.cloudServiceConnectorFactory = cloudServiceConnectorFactory;
@@ -126,7 +126,7 @@ public class CloudScanHelper {
 	}
 
 	public static class ApplicationInstanceInfoWrapper implements FactoryBean<ApplicationInstanceInfo> {
-		private Cloud cloud;
+		private final Cloud cloud;
 
 		public ApplicationInstanceInfoWrapper(Cloud cloud) {
 			this.cloud = cloud;
